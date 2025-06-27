@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './JobPredictor.css';
-import ParticlesBackground from './ParticlesBackground';
+import ParticlesBackground from '../ParticlesBackground';
 import heroImage from '../assets/job-illustration.svg'; // You can use your own image
 
 function JobPredictor() {

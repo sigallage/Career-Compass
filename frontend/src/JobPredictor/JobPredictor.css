@@ -136,3 +136,9 @@ canvas {
     padding: 1.5rem;
   }
 }
+canvas#tsparticles {
+  position: fixed;
+  z-index: 0;
+  top: 0;
+  left: 0;
+}

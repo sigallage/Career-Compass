@@ -1,21 +1,26 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import JobPredictor from "./JobPredictor/JobPredictor.jsx";
 
 
-function App() {
-  return (
-    <Router>
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <>
+        
+        <JobPredictor />
+      </>
+    ),
+  },
+  
+  {
+    path: "/job-predictor",
+    element: <JobPredictor />,
+  }
+]);
 
-        
-        <Routes>
-          <Route path="/JobPredictor" element={<JobPredictor />} />
-          
-        </Routes>
-        
-      
-    </Router>
-  );
+function App() {
+  return <RouterProvider router={router} />;
 }
 
 export default App;
