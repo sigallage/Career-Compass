@@ -1,0 +1,25 @@
+#custom-pointer {
+  position: fixed;
+  width: 48px;
+  height: 48px;
+  background-image: url('/compass-pointer.png');
+  background-size: cover;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  animation: spin 2s linear infinite;
+  transition: top 0.05s ease, left 0.05s ease;
+}
+
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+body {
+  cursor: none;
+}

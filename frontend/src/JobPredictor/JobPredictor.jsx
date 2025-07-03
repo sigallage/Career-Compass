@@ -35,7 +35,7 @@ function JobPredictor() {
 
       setResult(data);
     } catch (error) {
-      console.error('❌ Error:', error);
+      console.error('Error:', error);
       setResult({
         predicted_role: null,
         message: 'Something went wrong. Please try again.',
@@ -49,7 +49,7 @@ function JobPredictor() {
       <ParticlesBackground />
       <div className="app-container">
         <img src={heroImage} alt="Job Prediction" className="hero-image" />
-        <h1 className="app-title">🧠 AI Job Role Predictor</h1>
+        <h1 className="app-title"> AI Job Role Predictor</h1>
         <form onSubmit={handleSubmit} className="form">
           <input
             type="text"
@@ -58,7 +58,7 @@ function JobPredictor() {
             onChange={(e) => setSkills(e.target.value)}
             className="input animated-input"
           />
-          <button type="submit" className="button">🚀 Predict</button>
+          <button type="submit" className="button"> Predict</button>
         </form>
 
         {result && (
