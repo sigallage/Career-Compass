@@ -9,7 +9,10 @@ html, body, #root {
   color: #fff;
   overflow: hidden;
   position: relative;
+  cursor: none;
 }
+
+
 
 /* Fullscreen wrapper with particles */
 .app-wrapper {
