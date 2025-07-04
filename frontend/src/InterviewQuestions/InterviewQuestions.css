@@ -1,0 +1,227 @@
+/* Reset + base styles */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+  cursor: none;
+}
+
+/* Fullscreen wrapper with particles */
+.app-wrapper {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Particle canvas */
+canvas {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+/* Glass card container with yellow border */
+.app-container {
+  z-index: 1;
+  width: 95%;
+  max-width: 600px;
+  padding: 2.5rem;
+  margin: 2rem;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  border: 2px solid #ffd700;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+  animation: fadeIn 1s ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Heading and image */
+.app-title {
+  margin: 1rem 0;
+  font-size: 1.8rem;
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.hero-image {
+  width: 120px;
+  margin-bottom: 1rem;
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Form */
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input {
+  padding: 0.9rem 1rem;
+  border: 1px solid #333;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #1a1a1a;
+  color: #fff;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #ffd700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+  transform: scale(1.02);
+}
+
+.button {
+  padding: 0.9rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #ffd700;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: #ffed4e;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+}
+
+/* Enhanced Result Container */
+.result-container {
+  width: 100%;
+  margin-top: 2rem;
+  background: rgba(20, 20, 20, 0.9);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  max-height: 60vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.result-title {
+  font-size: 1.3rem;
+  color: #FFD700;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ai-answer {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #e0e0e0;
+  white-space: pre-wrap;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  flex-grow: 1;
+  max-height: 50vh;
+}
+
+/* Custom Scrollbar */
+.ai-answer::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ai-answer::-webkit-scrollbar-track {
+  background: rgba(255, 215, 0, 0.1);
+  border-radius: 3px;
+}
+
+.ai-answer::-webkit-scrollbar-thumb {
+  background: rgba(255, 215, 0, 0.4);
+  border-radius: 3px;
+}
+
+.ai-answer::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 215, 0, 0.6);
+}
+
+/* Bullet Point Formatting */
+.ai-answer ul {
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.ai-answer li {
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+
+.ai-answer li::before {
+  content: "•";
+  color: #ffd700;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .app-container {
+    padding: 1.5rem;
+    margin: 1rem;
+    width: 90%;
+  }
+
+  .app-title {
+    font-size: 1.5rem;
+  }
+
+  .input, .button {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
+
+  .result-container {
+    padding: 1.2rem;
+    max-height: 50vh;
+  }
+
+  .result-title {
+    font-size: 1.2rem;
+  }
+
+  .ai-answer {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}

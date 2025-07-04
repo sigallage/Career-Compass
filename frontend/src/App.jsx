@@ -1,17 +1,18 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { useEffect } from 'react';
-import JobPredictor from "./JobPredictor/JobPredictor.jsx";
+//import JobPredictor from "./JobPredictor/JobPredictor.jsx";
+import InterviewQuestions from './InterviewQuestions/InterviewQuestions.jsx';
 import './CustomPointer.css'; // Make sure this file exists
 
 // Setup the routes
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <JobPredictor />,
+    element: <InterviewQuestions />,
   },
   {
     path: "/job-predictor",
-    element: <JobPredictor />,
+    element: <InterviewQuestions />,
   }
 ]);
 
