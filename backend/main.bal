@@ -14,7 +14,7 @@ public function main() returns error? {
     // Start interview service
     http:Listener interviewListener = check new(interviewServicePort);
     http:Service interviewService = check getService(interviewServicePort, openRouterApiKey);
-    check interviewListener.attach(interviewService, "/interview");
+    check interviewListener.attach(interviewService, "/");
 
     // Start prediction service
     http:Listener predictionListener = check new(predictionServicePort);

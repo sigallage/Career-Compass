@@ -13,7 +13,7 @@ function InterviewQuestions() {
     setLoading(true);
 
     try {
-      const res = await fetch('http://localhost:5000/api/interview', {
+      const res = await fetch('http://localhost:5002/api/interview', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ role: topic }) // Key changed to 'role' to match backend

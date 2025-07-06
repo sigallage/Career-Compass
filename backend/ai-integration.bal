@@ -25,6 +25,15 @@ public isolated function getService(int port, string openRouterApiKey) returns h
             allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
         }
     } service object {
+         // Handle preflight OPTIONS requests
+        resource function options .() returns http:Ok {
+            return http:OK;
+        }
+        
+        resource function options api/interview() returns http:Ok {
+            return http:OK;
+        }
+        
         // Health check endpoint
         resource function get health() returns string {
             return "Interview service is running";
