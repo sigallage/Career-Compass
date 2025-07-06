@@ -2,12 +2,16 @@ import ballerina/http;
 import ballerina/log;
 
 # This module provides the prediction service functionality
+#
+# + port - The port number for the service
+# + modelServiceUrl - The URL of the model service
+# + return - HTTP service or error
 public isolated function createService(int port, string modelServiceUrl) returns http:Service|error {
     // Initialize the HTTP client
     http:Client modelClient = check new (modelServiceUrl);
 
     // Create the service object
-    service object {} svc = @http:ServiceConfig {
+    http:Service svc = @http:ServiceConfig {
         cors: {
             allowOrigins: ["*"],
             allowCredentials: false,
@@ -32,7 +36,7 @@ public isolated function createService(int port, string modelServiceUrl) returns
                 http:Response res = new;
                 res.statusCode = 400;
                 res.setHeader("Access-Control-Allow-Origin", "*");
-                res.setPayload(createErrorResponse(400, "Invalid JSON payload"));
+                res.setPayload(<json>createErrorResponse(400, "Invalid JSON payload"));
                 return caller->respond(res);
             }
             json payload = payloadResult;
@@ -41,7 +45,7 @@ public isolated function createService(int port, string modelServiceUrl) returns
                 http:Response res = new;
                 res.statusCode = 400;
                 res.setHeader("Access-Control-Allow-Origin", "*");
-                res.setPayload(createErrorResponse(400, "Invalid payload format"));
+                res.setPayload(<json>createErrorResponse(400, "Invalid payload format"));
                 return caller->respond(res);
             }
 
@@ -50,14 +54,14 @@ public isolated function createService(int port, string modelServiceUrl) returns
                 http:Response res = new;
                 res.statusCode = 400;
                 res.setHeader("Access-Control-Allow-Origin", "*");
-                res.setPayload(createErrorResponse(400, "Skills field is required"));
+                res.setPayload(<json>createErrorResponse(400, "Skills field is required"));
                 return caller->respond(res);
             }
             if !(skillsJson is json[]) {
                 http:Response res = new;
                 res.statusCode = 400;
                 res.setHeader("Access-Control-Allow-Origin", "*");
-                res.setPayload(createErrorResponse(400, "Skills should be an array"));
+                res.setPayload(<json>createErrorResponse(400, "Skills should be an array"));
                 return caller->respond(res);
             }
 
@@ -67,7 +71,7 @@ public isolated function createService(int port, string modelServiceUrl) returns
                 http:Response res = new;
                 res.statusCode = 400;
                 res.setHeader("Access-Control-Allow-Origin", "*");
-                res.setPayload(createErrorResponse(400, "No valid skills provided"));
+                res.setPayload(<json>createErrorResponse(400, "No valid skills provided"));
                 return caller->respond(res);
             }
 
@@ -82,7 +86,7 @@ public isolated function createService(int port, string modelServiceUrl) returns
                 http:Response res = new;
                 res.statusCode = 502;
                 res.setHeader("Access-Control-Allow-Origin", "*");
-                res.setPayload(createErrorResponse(502, "Prediction service unavailable"));
+                res.setPayload(<json>createErrorResponse(502, "Prediction service unavailable"));
                 return caller->respond(res);
             }
 
@@ -92,7 +96,7 @@ public isolated function createService(int port, string modelServiceUrl) returns
                 http:Response res = new;
                 res.statusCode = 502;
                 res.setHeader("Access-Control-Allow-Origin", "*");
-                res.setPayload(createErrorResponse(502, "Invalid response from prediction service"));
+                res.setPayload(<json>createErrorResponse(502, "Invalid response from prediction service"));
                 return caller->respond(res);
             }
 

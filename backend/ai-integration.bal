@@ -2,6 +2,10 @@ import ballerina/http;
 import ballerina/log;
 
 # This module provides the interview question generation service
+#
+# + port - The port number for the service
+# + openRouterApiKey - The OpenRouter API key
+# + return - HTTP service or error
 public isolated function getService(int port, string openRouterApiKey) returns http:Service|error {
     final string OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions";
     final string OPENROUTER_MODEL = "mistralai/mistral-7b-instruct";
@@ -61,7 +65,7 @@ public isolated function getService(int port, string openRouterApiKey) returns h
                 
                 OpenRouterResponse response = check openRouterClient->post("/", openRouterRequest, headers);
                
-                string answer = response.choices[0]?.message?.content is string ? response.choices[0]?.message?.content : "No response generated.";
+                string answer = response.choices.length() > 0 ? response.choices[0].message.content : "No response generated.";
                
                 return {
                     success: true,
