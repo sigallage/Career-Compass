@@ -3,10 +3,10 @@ import ballerina/log;
 import ballerina/lang.runtime;
 
 // Configuration
-configurable int interviewServicePort = 5000;
-configurable int predictionServicePort = 5002;
-configurable string openRouterApiKey = "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";
-configurable string modelServiceUrl = "http://localhost:8000";
+configurable int interviewServicePort = ?;
+configurable int predictionServicePort = ?;
+configurable string openRouterApiKey = ?;
+configurable string modelServiceUrl = ?;
 
 public function main() returns error? {
     log:printInfo("Starting backend services...");

@@ -13,7 +13,7 @@ function InterviewQuestions() {
     setLoading(true);
 
     try {
-      const res = await fetch('http://localhost:5002/api/interview', {
+      const res = await fetch('http://localhost:5000/api/interview', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ role: topic }) // Key changed to 'role' to match backend
@@ -33,7 +33,7 @@ function InterviewQuestions() {
     <div className="app-wrapper">
       <ParticlesBackground />
       <div className="app-container">
-        <h1 className="app-title">💬 AI Interview Assistant (Hugging Face)</h1>
+        <h1 className="app-title">💬 AI Interview Assistant</h1>
         <form onSubmit={handleSubmit} className="form">
           <input
             type="text"

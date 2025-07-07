@@ -52,7 +52,7 @@ public isolated function getService(int port, string openRouterApiKey) returns h
             
             // Generate interview questions
             do {
-                string prompt = string `Generate 5 interview questions and answers for a ${request.role} job. Use bullet points.`;
+                string prompt = string `Generate 10 technical interview questions and answers for a ${request.role} job. Use bullet points.`;
                
                 OpenRouterRequest openRouterRequest = {
                     model: OPENROUTER_MODEL,
