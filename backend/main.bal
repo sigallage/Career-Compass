@@ -1,129 +1,32 @@
 import ballerina/http;
 import ballerina/log;
+import ballerina/lang.runtime;
 
 // Configuration
-configurable int port = 5000;
-configurable string modelServiceUrl = "http://localhost:5001";
+configurable int interviewServicePort = ?;
+configurable int predictionServicePort = ?;
+configurable string openRouterApiKey = ?;
+configurable string modelServiceUrl = ?;
 
-// HTTP client for model service
-http:Client modelClient = check new (modelServiceUrl);
+public function main() returns error? {
+    log:printInfo("Starting backend services...");
 
-// Helper functions
-function createErrorResponse(int status, string message) returns json {
-    return {
-        "error": message,
-        "predicted_role": null,  // Changed from () to null
-        "suggested_skills": []
-    };
-}
+    // Start interview service
+    http:Listener interviewListener = check new(interviewServicePort);
+    http:Service interviewService = check getService(interviewServicePort, openRouterApiKey);
+    check interviewListener.attach(interviewService, "/");
 
-function validateSkills(json[] skillsJson) returns string[] {
-    string[] skills = [];
-    foreach var skill in skillsJson {
-        if skill is string {
-            skills.push(skill.trim().toLowerAscii());
-        } else if skill is int|float|decimal|boolean {
-            skills.push(skill.toString().trim().toLowerAscii());
-        }
-    }
-    return skills;
-}
+    // Start prediction service
+    http:Listener predictionListener = check new(predictionServicePort);
+    http:Service predictionService = check createService(predictionServicePort, modelServiceUrl);
+    check predictionListener.attach(predictionService, "/prediction");
 
-// Service implementation with CORS configuration
-@http:ServiceConfig {
-    cors: {
-        allowOrigins: ["*"],
-        allowCredentials: false,
-        allowHeaders: ["Content-Type", "Authorization"],
-        allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
-    }
-}
-service / on new http:Listener(port) {
-    // Handle preflight OPTIONS requests
-    resource function options predict(http:Caller caller, http:Request req) returns error? {
-        http:Response res = new;
-        res.setHeader("Access-Control-Allow-Origin", "*");
-        res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
-        res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-        res.statusCode = 200;
-        return caller->respond(res);
-    }
+    // Start the listeners
+    check interviewListener.'start();
+    check predictionListener.'start();
 
-    resource function post predict(http:Caller caller, http:Request req) returns error? {
-        // Step 1: Validate input
-        json|error payloadResult = req.getJsonPayload();
-        if payloadResult is error {
-            http:Response res = new;
-            res.statusCode = 400;
-            res.setHeader("Access-Control-Allow-Origin", "*");
-            res.setPayload(createErrorResponse(400, "Invalid JSON payload"));
-            return caller->respond(res);
-        }
-        json payload = payloadResult;
-       
-        if !(payload is map<json>) {
-            http:Response res = new;
-            res.statusCode = 400;
-            res.setHeader("Access-Control-Allow-Origin", "*");
-            res.setPayload(createErrorResponse(400, "Invalid payload format"));
-            return caller->respond(res);
-        }
+    log:printInfo(string `Services running on ports ${interviewServicePort} and ${predictionServicePort}`);
 
-        json skillsJson = payload["skills"];
-        if skillsJson is () {
-            http:Response res = new;
-            res.statusCode = 400;
-            res.setHeader("Access-Control-Allow-Origin", "*");
-            res.setPayload(createErrorResponse(400, "Skills field is required"));
-            return caller->respond(res);
-        }
-        if !(skillsJson is json[]) {
-            http:Response res = new;
-            res.statusCode = 400;
-            res.setHeader("Access-Control-Allow-Origin", "*");
-            res.setPayload(createErrorResponse(400, "Skills should be an array"));
-            return caller->respond(res);
-        }
-
-        // Step 2: Prepare model request
-        string[] validatedSkills = validateSkills(<json[]>skillsJson);
-        if validatedSkills.length() == 0 {
-            http:Response res = new;
-            res.statusCode = 400;
-            res.setHeader("Access-Control-Allow-Origin", "*");
-            res.setPayload(createErrorResponse(400, "No valid skills provided"));
-            return caller->respond(res);
-        }
-
-        json modelRequest = {
-            "skills": validatedSkills
-        };
-
-        // Step 3: Call Python model service
-        http:Response|error modelResponse = modelClient->post("/predict", modelRequest);
-        if modelResponse is error {
-            log:printError("Model service error", modelResponse);
-            http:Response res = new;
-            res.statusCode = 502;
-            res.setHeader("Access-Control-Allow-Origin", "*");
-            res.setPayload(createErrorResponse(502, "Prediction service unavailable"));
-            return caller->respond(res);
-        }
-
-        // Step 4: Process model response
-        json|error responseJson = modelResponse.getJsonPayload();
-        if responseJson is error {
-            http:Response res = new;
-            res.statusCode = 502;
-            res.setHeader("Access-Control-Allow-Origin", "*");
-            res.setPayload(createErrorResponse(502, "Invalid response from prediction service"));
-            return caller->respond(res);
-        }
-
-        // Step 5: Forward response
-        http:Response res = new;
-        res.setHeader("Access-Control-Allow-Origin", "*");
-        res.setPayload(responseJson);
-        return caller->respond(res);
-    }
+    // Keep the main function running - wait for termination
+    runtime:sleep(9223372036854775807); // Max int64 value to keep running
 }
