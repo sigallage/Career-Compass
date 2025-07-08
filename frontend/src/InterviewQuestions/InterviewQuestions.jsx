@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './InterviewQuestions.css';
 import ParticlesBackground from '../ParticlesBackground';
+import interviewImage from '../assets/interview.png';
 
 function InterviewQuestions() {
   const [topic, setTopic] = useState('');
@@ -33,7 +34,21 @@ function InterviewQuestions() {
     <div className="app-wrapper">
       <ParticlesBackground />
       <div className="app-container">
-        <h1 className="app-title">💬 AI Interview Assistant</h1>
+        {/* Hero Section */}
+        <div className="hero-section">
+          <img 
+            src={interviewImage} 
+            alt="AI Interview Assistant" 
+            className="hero-image"
+          />
+          <div className="hero-content">
+            <h1 className="app-title">💬 AI Interview Assistant</h1>
+            <p className="hero-subtitle">
+              Get personalized technical interview questions for any role
+            </p>
+          </div>
+        </div>
+
         <form onSubmit={handleSubmit} className="form">
           <input
             type="text"
