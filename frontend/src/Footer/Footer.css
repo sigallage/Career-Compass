@@ -1,7 +1,7 @@
 .footer-glow {
   background: #0a0a0a;
   color: #ffd700;
-  padding: 32px 0 16px 0;
+  padding: 16px 0 8px 0;
   text-align: center;
   box-shadow: 0 -2px 24px 0 #ffd70033;
   border-top: 1px solid #ffd70044;
@@ -13,21 +13,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
 }
 
 .footer-title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
   color: #ffd700;
   text-shadow: 0 0 8px #ffd70099, 0 0 2px #fff;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .footer-links-glow {
   display: flex;
-  gap: 24px;
-  margin: 8px 0;
+  gap: 18px;
+  margin: 4px 0;
 }
 
 .footer-links-glow a {
@@ -44,9 +44,33 @@
   text-shadow: 0 0 12px #ffd700cc, 0 0 2px #fff;
 }
 
+.footer-socials {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin: 4px 0 0 0;
+}
+
+.footer-socials a svg {
+  stroke: #ffd700;
+  transition: stroke 0.2s, filter 0.2s;
+  filter: drop-shadow(0 0 6px #ffd70055);
+}
+
+.footer-socials a:hover svg {
+  stroke: #fffbe6;
+  filter: drop-shadow(0 0 12px #ffd700cc) drop-shadow(0 0 2px #fff);
+}
+
 .footer-copy {
   color: #ffd700cc;
-  font-size: 0.95rem;
-  margin-top: 8px;
+  font-size: 0.85rem;
+  margin-top: 4px;
   text-shadow: 0 0 4px #ffd70055;
+}
+
+.footer-social-gap {
+  display: none; /* No longer needed with flex gap */
 }
