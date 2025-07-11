@@ -4,6 +4,7 @@ import JobPredictor from "./JobPredictor/JobPredictor.jsx";
 import InterviewQuestions from './InterviewQuestions/InterviewQuestions.jsx';
 import Header from './Header/Header.jsx';
 import './CustomPointer.css'; // Make sure this file exists
+import Footer from './Footer/Footer.jsx';
 
 // Layout component that includes the header
 function Layout() {
@@ -26,7 +27,7 @@ function Layout() {
       <main>
         <Outlet />
       </main>
-      
+      <Footer />
       <div id="custom-pointer"></div>
     </>
   );
