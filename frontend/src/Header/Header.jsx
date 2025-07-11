@@ -63,6 +63,7 @@ const logoStyle = {
   textShadow: '0 0 10px rgba(255, 215, 0, 0.5)'
 };
 
+
 const navStyle = {
   display: 'flex',
   gap: '30px'
