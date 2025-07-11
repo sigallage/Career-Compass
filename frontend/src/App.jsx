@@ -26,6 +26,7 @@ function Layout() {
       <main>
         <Outlet />
       </main>
+      
       <div id="custom-pointer"></div>
     </>
   );
