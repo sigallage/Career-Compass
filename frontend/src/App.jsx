@@ -3,9 +3,10 @@ import { useEffect } from "react";
 import JobPredictor from "./JobPredictor/JobPredictor.jsx";
 import InterviewQuestions from './InterviewQuestions/InterviewQuestions.jsx';
 import Header from './Header/Header.jsx';
+import Footer from './Footer/Footer.jsx';
 import './CustomPointer.css'; // Make sure this file exists
 
-// Layout component that includes the header
+// Layout component that includes the header and footer
 function Layout() {
   useEffect(() => {
     const pointer = document.getElementById("custom-pointer");
@@ -34,6 +35,7 @@ function Layout() {
       <main>
         <Outlet />
       </main>
+      <Footer />
       <div id="custom-pointer"></div>
     </>
   );
