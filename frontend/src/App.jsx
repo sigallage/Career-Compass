@@ -1,10 +1,9 @@
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { useEffect } from "react";
 import JobPredictor from "./JobPredictor/JobPredictor.jsx";
-import InterviewQuestions from "./InterviewQuestions/InterviewQuestions.jsx";
-import Header from "./Header/Header.jsx";
-import Footer from "./Footer/Footer.jsx"; // Assuming you have a Footer component
-import "./CustomPointer.css"; // Make sure this file exists
+import InterviewQuestions from './InterviewQuestions/InterviewQuestions.jsx';
+import Header from './Header/Header.jsx';
+import './CustomPointer.css'; // Make sure this file exists
 
 // Layout component that includes the header
 function Layout() {
@@ -35,8 +34,6 @@ function Layout() {
       <main>
         <Outlet />
       </main>
-      <Footer />
-
       <div id="custom-pointer"></div>
     </>
   );
