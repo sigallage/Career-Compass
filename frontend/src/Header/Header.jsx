@@ -1,8 +1,16 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const Header = () => {
   const location = useLocation();
+  const { loginWithRedirect } = useAuth0();
+
+  const handleSignUp = () => {
+    loginWithRedirect({
+      screen_hint: 'signup'
+    });
+  };
 
   return (
     <header style={headerStyle}>
@@ -31,11 +39,32 @@ const Header = () => {
           >
             Interview Questions
           </Link>
+          <button onClick={handleSignUp} style={signupButtonStyle}>
+            Sign Up
+          </button>
         </nav>
       </div>
     </header>
   );
 };
+
+const signupButtonStyle = {
+  padding: '8px 16px',
+  backgroundColor: '#FFD700',
+  color: '#000',
+  border: 'none',
+  borderRadius: '8px',
+  fontWeight: 'bold',
+  cursor: 'pointer',
+  transition: 'all 0.3s ease',
+};
+
+const logoutButtonStyle = {
+  ...signupButtonStyle,
+  backgroundColor: '#f44336',
+  color: '#fff',
+};
+
 
 const headerStyle = {
   backgroundColor: 'rgba(0, 0, 0, 0.9)',
