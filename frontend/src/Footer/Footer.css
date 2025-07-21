@@ -72,5 +72,7 @@
 }
 
 .footer-social-gap {
-  display: none; /* No longer needed with flex gap */
+  display: none; 
 }
+
+

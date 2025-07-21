@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@auth0/auth0-react": "^2.3.0",
+    "dotenv": "^17.2.0",
+    "mongodb": "^6.17.0",
+    "mongoose": "^8.16.4"
+  }
+}
