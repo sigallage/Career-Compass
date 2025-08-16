@@ -29,10 +29,11 @@ public function main() returns error? {
     log:printInfo("Starting prediction service listener on port: " + predictionServicePort.toString());
     check predictionListener.'start();
 
-    log:printInfo(string `Services running on ports ${interviewServicePort} and ${predictionServicePort}`);
+    log:printInfo("Services running on ports " + interviewServicePort.toString() + " and " + predictionServicePort.toString());
     log:printInfo("Interview service endpoints:");
     log:printInfo("  - GET /health");
     log:printInfo("  - POST /api/interview");
+    log:printInfo("  - POST /api/contact");
     log:printInfo("Prediction service endpoints:");
     log:printInfo("  - POST /prediction/predict");
 
