@@ -4,9 +4,10 @@ import { useNavigate } from "react-router-dom";
 const Auth0ProviderWithNavigate = ({ children }) => {
   const navigate = useNavigate();
 
-  const domain = import.meta.env.VITE_AUTH0_DOMAIN;
-  const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID;
-  const redirectUri = import.meta.env.VITE_AUTH0_CALLBACK_URL;
+  // Hardcoded Auth0 configuration for universal access
+  const domain = "dev-npybc0wru5wbgsyb.us.auth0.com";
+  const clientId = "HfWrcDzjKanhcV6tILc1yYz0ibhocv9C";
+  const redirectUri = window.location.origin;
 
   const onRedirectCallback = (appState) => {
     navigate(appState?.returnTo || window.location.pathname);
