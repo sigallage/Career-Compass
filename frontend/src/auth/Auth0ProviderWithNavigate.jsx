@@ -4,10 +4,20 @@ import { useNavigate } from "react-router-dom";
 const Auth0ProviderWithNavigate = ({ children }) => {
   const navigate = useNavigate();
 
-  // Hardcoded Auth0 configuration for universal access
-  const domain = "dev-npybc0wru5wbgsyb.us.auth0.com";
-  const clientId = "HfWrcDzjKanhcV6tILc1yYz0ibhocv9C";
-  const redirectUri = window.location.origin;
+  // Use environment variables for Auth0 configuration
+  const domain = import.meta.env.VITE_AUTH0_DOMAIN || "dev-npybc0wru5wbgsyb.us.auth0.com";
+  const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID || "HfWrcDzjKanhcV6tILc1yYz0ibhocv9C";
+  const redirectUri = import.meta.env.VITE_AUTH0_CALLBACK_URL || window.location.origin;
+
+  // Check if required environment variables are present
+  if (!domain || !clientId) {
+    return (
+      <div style={{ padding: '20px', textAlign: 'center', color: 'red' }}>
+        <h3>Configuration Error</h3>
+        <p>Auth0 environment variables are missing. Please check your .env file.</p>
+      </div>
+    );
+  }
 
   const onRedirectCallback = (appState) => {
     navigate(appState?.returnTo || window.location.pathname);
