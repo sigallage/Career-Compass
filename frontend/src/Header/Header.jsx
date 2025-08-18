@@ -4,11 +4,19 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 const Header = () => {
   const location = useLocation();
-  const { loginWithRedirect } = useAuth0();
+  const { loginWithRedirect, logout, isAuthenticated, user, isLoading } = useAuth0();
 
   const handleSignUp = () => {
     loginWithRedirect({
       screen_hint: 'signup'
+    });
+  };
+
+  const handleLogout = () => {
+    logout({
+      logoutParams: {
+        returnTo: window.location.origin
+      }
     });
   };
 
@@ -39,9 +47,37 @@ const Header = () => {
           >
             Interview Questions
           </Link>
-          <button onClick={handleSignUp} style={signupButtonStyle}>
-            Sign Up
-          </button>
+          
+          {/* Show loading state */}
+          {isLoading && (
+            <span style={{ color: '#fff', padding: '8px 16px' }}>Loading...</span>
+          )}
+          
+          {/* Show user info when authenticated */}
+          {!isLoading && isAuthenticated ? (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+              <span style={{ color: '#FFD700', fontWeight: 'bold' }}>
+                Welcome, {user?.name || user?.email}!
+              </span>
+              {user?.picture && (
+                <img 
+                  src={user.picture} 
+                  alt="User" 
+                  style={{ width: '32px', height: '32px', borderRadius: '50%' }}
+                />
+              )}
+              <button onClick={handleLogout} style={logoutButtonStyle}>
+                Logout
+              </button>
+            </div>
+          ) : (
+            // Show sign up button when not authenticated
+            !isLoading && (
+              <button onClick={handleSignUp} style={signupButtonStyle}>
+                Sign Up/ Login
+              </button>
+            )
+          )}
         </nav>
       </div>
     </header>
