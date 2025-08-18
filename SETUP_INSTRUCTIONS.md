@@ -16,20 +16,7 @@
    ```bash
    npm install
    ```
-
-3. **Configure Auth0 Environment Variables:**
-   - Copy `.env.example` to `.env`:
-     ```bash
-     cp .env.example .env
-     ```
-   - Edit `.env` and fill in your Auth0 credentials:
-     ```
-     VITE_AUTH0_DOMAIN=your-auth0-domain.auth0.com
-     VITE_AUTH0_CLIENT_ID=your-auth0-client-id
-     VITE_AUTH0_CALLBACK_URL=http://localhost:5173
-     ```
-
-4. Start the development server:
+3. Start the development server:
    ```bash
    npm run dev
    ```
@@ -69,5 +56,5 @@
 ## Important Notes
 
 - The `.env` file is not committed to Git for security reasons
-- Each developer needs to create their own `.env` file using the `.env.example` template
+- Each developer needs to create their own `.env` using this.
 - Auth0 credentials are required for the sign-up/login functionality to work

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './JobPredictor.css';
 import ParticlesBackground from '../ParticlesBackground';
-import heroImage from '../assets/job-illustration.svg'; 
+import heroImage from '../assets/interview.png'; 
 
 function JobPredictor() {
   const [skills, setSkills] = useState('');
