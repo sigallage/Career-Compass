@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import './FAQ.css';
+import ParticlesBackground from '../ParticlesBackground';
+import ParticlesBackground from '../ParticlesBackground';
+
 
 const faqData = [
   {
@@ -82,6 +85,7 @@ const FAQ = () => {
 
   return (
     <div className="faq-container">
+      <ParticlesBackground />
       <h2>Frequently Asked Questions</h2>
       {faqData.map((item, index) => (
         <FAQItem
