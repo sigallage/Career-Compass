@@ -48,6 +48,7 @@ function App() {
         <Route path="interview-questions" element={<InterviewQuestions />} />
         <Route path="contact" element={<Contact />} />
         <Route path="SignUp" element={<SignUp />} />
+        <Route path="contact us" element={<Contact />} />
       </Route>
     </Routes>
   );
