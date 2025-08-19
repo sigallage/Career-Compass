@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './FAQ.css';
 import ParticlesBackground from '../ParticlesBackground';
-import ParticlesBackground from '../ParticlesBackground';
+
 
 
 const faqData = [

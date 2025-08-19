@@ -23,12 +23,14 @@ section {
   color: #FFD700;
   margin-bottom: 10px;
   margin-top: 5.5px;
+  text-align: center;
 }
 
 .hero p {
   font-size: 1.5rem;
   margin-bottom: 30px;
   color: #FFD700;
+  text-align: center;
 }
 .hero-card {
   background: #ffff3339;
@@ -70,6 +72,7 @@ section {
 .btn.primary {
   background-color: #FFD700;
   color: #443d01;
+  margin-left: 33rem;
 }
 .btn.primary:hover, .btn.secondary:hover {
   background-color: #443d01;
@@ -180,4 +183,10 @@ section {
 
 .join-buttons .btn {
   margin: 10px;
+  border-radius: 13px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  text-decoration: none;
 }
+
