@@ -13,12 +13,11 @@ const Header = () => {
       </div>
       <nav className="nav-links">  
         <Link to="/">HOME</Link>
-        <Link to="/dashboard">DASHBOARD</Link>
-        <Link to="/recommendations">ANALYZER</Link>
-        <Link to="/tab1">FAQ</Link>
-        <Link to="/tab2">VIDEOS</Link>
-        <Link to="/login" className="login">Login</Link>
-        <Link to="/signup" className="signup">Sign Up</Link>
+  <Link to="/dashboard">DASHBOARD</Link>
+  <Link to="/recommendations">ANALYZER</Link>
+  <Link to="/faq">FAQ</Link>
+  <Link to="/videos">VIDEOS</Link>
+  <Link to="/signup" className="signup">Login</Link>
       </nav>
     </header>
   );

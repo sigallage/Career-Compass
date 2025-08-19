@@ -4,6 +4,7 @@ import JobPredictor from "./JobPredictor/JobPredictor.jsx";
 import MainPage from './MainPage/MainPage.jsx';
 import InterviewQuestions from './InterviewQuestions/InterviewQuestions.jsx';
 import Contact from './Contact/Contact.jsx';
+import FAQ from './faq/faq.jsx';
 import Header from './Header/Header.jsx';
 import Footer from './Footer/Footer.jsx';
 import './CustomPointer.css'; // Make sure this file exists
@@ -45,9 +46,13 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
   <Route index element={<MainPage />} />
-        <Route path="job-predictor" element={<JobPredictor />} />
+  <Route path="job-predictor" element={<JobPredictor />} />
+  <Route path="recommendations" element={<JobPredictor />} />
         <Route path="interview-questions" element={<InterviewQuestions />} />
         <Route path="contact" element={<Contact />} />
+  <Route path="faq" element={<FAQ />} />
+  <Route path="videos" element={<div style={{padding:'2rem', color:'#ffd700'}}>Videos page coming soon.</div>} />
+  <Route path="dashboard" element={<div style={{padding:'2rem', color:'#ffd700'}}>Dashboard coming soon.</div>} />
   <Route path="signup" element={<SignUp />} />
   {/* Fallback redirect to home */}
   <Route path="*" element={<Navigate to="/" replace />} />
