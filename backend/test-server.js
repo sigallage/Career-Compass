@@ -9,11 +9,11 @@ app.use(cors());
 
 // Simple test endpoint
 app.post('/api/contact', (req, res) => {
-  console.log('✅ CONTACT FORM DATA RECEIVED:', req.body);
+  console.log(' CONTACT FORM DATA RECEIVED:', req.body);
   res.json({ success: true, message: 'Data received successfully!' });
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 TEST SERVER running on http://localhost:${PORT}`);
-  console.log(`📧 Test this URL: http://localhost:3001/api/contact`);
+  console.log(` TEST SERVER running on http://localhost:${PORT}`);
+  console.log(` Test this URL: http://localhost:3001/api/contact`);
 });

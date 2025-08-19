@@ -92,7 +92,7 @@ app.get('/api/health', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-  console.log(`📧 Contact API: http://localhost:${PORT}/api/contact`);
-  console.log(`❤ Health check: http://localhost:${PORT}/api/health`);
+  console.log(` Server running on port ${PORT}`);
+  console.log(` Contact API: http://localhost:${PORT}/api/contact`);
+  console.log(` Health check: http://localhost:${PORT}/api/health`);
 });
