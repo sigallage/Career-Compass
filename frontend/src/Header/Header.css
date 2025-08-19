@@ -45,8 +45,21 @@
 }
 
 .login {
-  color:  #ffff3328; /* login button bright blue */
-  border: 1px solid #766800;
+  background-color: #FFD700;
+  color: #000000;
+  border: 1px solid #FFD700;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: 'Times New Roman', Times, serif;
+  margin-left: 25px;
+  transition: all 0.3s ease;
+}
+
+.login:hover {
+  background-color: #E6C200;
+  border-color: #E6C200;
 }
 
 .signup {

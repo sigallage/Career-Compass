@@ -2,11 +2,15 @@
   font-family: 'Segoe UI', sans-serif;
   background-color: #000000;
   color: #ffffff;
+  position: relative;
+  z-index: 1;
 }
 
 section {
   padding: 0%;
   text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 .hero {
