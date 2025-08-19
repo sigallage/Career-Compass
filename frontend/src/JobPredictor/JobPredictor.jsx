@@ -26,10 +26,10 @@ function JobPredictor() {
     }
 
     console.log('Sending skills:', skillsArray);
-    console.log('Making request to: http://localhost:3002/prediction/predict');
+    console.log('Making request to: http://localhost:5002/prediction/predict');
 
     try {
-      const response = await fetch('http://localhost:3002/prediction/predict', {
+      const response = await fetch('http://localhost:5002/prediction/predict', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ skills: skillsArray })
