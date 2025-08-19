@@ -1,0 +1,179 @@
+.main-page {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+section {
+  padding: 0%;
+  text-align: center;
+}
+
+.hero {
+  background: linear-gradient(to right, #000000bc, #202702);
+  padding: 100px 20px;
+}
+
+.hero h1 {
+  font-size: 4.5rem;
+  color: #FFD700;
+  margin-bottom: 10px;
+  margin-top: 5.5px;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  color: #FFD700;
+}
+.hero-card {
+  background: #ffff3339;
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  
+  /* Smaller size adjustments */
+  max-width: 700px;     /* limits width */
+  padding: 1rem 1.5rem; /* less inner space */
+  margin: 1rem auto;    /* centers horizontally with less top/bottom space */
+  
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+
+.hero-card:hover {
+  transform: scale(1.05) translateY(-5px); /* grows & moves up */
+  box-shadow: 0 10px 30px rgba(174, 184, 207, 0.3); /* subtle shadow */
+  
+}
+
+.hero-description p {
+  font-size: 1rem;
+  color: #ffffff;
+  text-align: justify, center;
+  line-height: 1.6;
+}
+
+.hero-buttons .btn {
+  margin: 10px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn.primary {
+  background-color: #FFD700;
+  color: #443d01;
+}
+.btn.primary:hover, .btn.secondary:hover {
+  background-color: #443d01;
+  color: white;
+}
+
+.btn.secondary {
+  background-color: transparent;
+  border: 2px solid #FFD700;
+  color:#FFD700;
+  padding: 0.75rem 1.5rem;
+  font-size: 2rem;         
+  border-radius: 0.5rem;  
+  cursor: pointer;        
+  transition: all 0.3s ease; 
+}
+
+.btn.secondary:hover {
+  background-color:#443d01;
+  color: #ffffff;
+}
+
+.card-section {
+  margin: 1rem 0;
+}
+
+.card {
+  background:#ffff335e;  /* semi-transparent card */
+  backdrop-filter: blur(10px);     /* blur effect */
+  border-radius: 20px;
+  padding: 10rem;
+  max-width: 60%;
+  color: rgb(255, 255, 255);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  text-align: left;
+  margin: 1rem auto; /* centers horizontally */
+}
+
+.card:hover {
+  transform: scale(1.05);  /* grows slightly on hover */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* subtle shadow */
+}
+
+.card h2 {
+  margin-bottom: 1rem;
+  text-align: left;
+  font-size: 2.5rem;
+}
+
+.steps, .card ul {
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+.steps .step {
+  margin-bottom: 0.5rem;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.card ul li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 0.8rem;
+}
+
+.card ul li::before {
+  content: '✔️';
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.card-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.card-text {
+  flex: 1;
+}
+
+.card-image img {
+  max-width: 350px;   /* control size */
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.card-section {
+  background-image: url('./wallpaper.jpg'); /* path to your wallpaper */
+  background-size: 120%;     /* cover whole section */
+  background-position: center; /* center the image */
+  background-repeat: no-repeat; /* no repeat */
+  padding: 60px 20px;
+  display: flex;
+        /* space around the card */
+  justify-content: center;
+  align-items: center;
+  
+}
+  
+
+.join-buttons .btn {
+  margin: 10px;
+}
