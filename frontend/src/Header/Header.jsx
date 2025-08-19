@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 import './Header.css';
 
 import logo from '../assets/CP.jpg';
 
 const Header = () => {
+  const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
+  
   return (
     <header className="header">
       <div className="logo">
@@ -13,11 +16,32 @@ const Header = () => {
       </div>
       <nav className="nav-links">  
         <Link to="/">HOME</Link>
-  <Link to="/dashboard">DASHBOARD</Link>
-  <Link to="/recommendations">ANALYZER</Link>
-  <Link to="/faq">FAQ</Link>
-  <Link to="/videos">VIDEOS</Link>
-  <Link to="/signup" className="signup">Login</Link>
+        <Link to="/interview-questions">INTERVIEW QUESTIONS</Link>
+        <Link to="/job-predictor">JOB PREDICTOR</Link>
+        <Link to="/contact">CONTACT</Link>
+        <Link to="/faq">FAQ</Link>
+        {!isAuthenticated ? (
+          <button
+            type="button"
+            className="login"
+            onClick={() => loginWithRedirect()}
+          >
+            Login
+          </button>
+        ) : (
+          <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginLeft: '40px' }}>
+            <span style={{ color: '#FFD700', fontSize: '0.9rem' }}>
+              Welcome, {user?.name || 'User'}
+            </span>
+            <button
+              type="button"
+              className="login"
+              onClick={() => logout({ returnTo: window.location.origin })}
+            >
+              Logout
+            </button>
+          </div>
+        )}
       </nav>
     </header>
   );
