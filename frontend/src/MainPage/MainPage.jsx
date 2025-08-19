@@ -1,8 +1,8 @@
 import React from 'react';
 import './MainPage.css';
-import analyzer from './analyzer.jpg';
-import howItWorks from './how it works.jpg';
-import wallpaper from './wallpaper.jpg';
+import analyzer from '../assets/analyzer.jpg';
+import howItWorks from '../assets/how it works.jpg';
+//import wallpaper from '../assets/wallpaper.jpg';
 import { Link } from 'react-router-dom';
 
 const MainPage = () => {
