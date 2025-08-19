@@ -1,7 +1,7 @@
 import React from 'react';
 import './MainPage.css';
-import analyzer from '../assets/analyzer.jpg';
-import howItWorks from '../assets/how it works.jpg';
+import analyzer from '../assets/analyzer.svg';
+import howItWorks from '../assets/how it works.svg';
 import ParticlesBackground from '../ParticlesBackground';
 import { Link } from 'react-router-dom';
 

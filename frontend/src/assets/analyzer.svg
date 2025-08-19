@@ -1,0 +1,72 @@
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Magnifying glass lens (black outline) -->
+  <circle cx="150" cy="130" r="80" 
+          fill="white" 
+          stroke="black" 
+          stroke-width="12"/>
+  
+  <!-- Magnifying glass handle -->
+  <rect x="205" y="195" width="15" height="60" 
+        rx="7.5" ry="7.5" 
+        fill="black" 
+        transform="rotate(45 212.5 225)"/>
+  
+  <!-- Handle end -->
+  <ellipse cx="225" cy="243" rx="12" ry="20" 
+           fill="black" 
+           transform="rotate(45 225 243)"/>
+  
+  <!-- Network nodes and connections inside magnifying glass -->
+  <!-- Node 1 (bottom left) -->
+  <circle cx="115" cy="155" r="12" 
+          fill="white" 
+          stroke="#FFD700" 
+          stroke-width="6"/>
+  
+  <!-- Node 2 (top center) -->
+  <circle cx="150" cy="110" r="12" 
+          fill="white" 
+          stroke="#FFD700" 
+          stroke-width="6"/>
+  
+  <!-- Node 3 (right) -->
+  <circle cx="185" cy="140" r="12" 
+          fill="white" 
+          stroke="#FFD700" 
+          stroke-width="6"/>
+  
+  <!-- Connections between nodes -->
+  <line x1="127" y1="148" x2="142" y2="118" 
+        stroke="#FFD700" 
+        stroke-width="6" 
+        stroke-linecap="round"/>
+  
+  <line x1="158" y1="118" x2="177" y2="133" 
+        stroke="#FFD700" 
+        stroke-width="6" 
+        stroke-linecap="round"/>
+  
+  <!-- External node (left) -->
+  <circle cx="45" cy="125" r="12" 
+          fill="white" 
+          stroke="#FFD700" 
+          stroke-width="6"/>
+  
+  <!-- External node (right) -->
+  <circle cx="255" cy="105" r="12" 
+          fill="white" 
+          stroke="#FFD700" 
+          stroke-width="6"/>
+  
+  <!-- Connection from external left node -->
+  <line x1="57" y1="125" x2="95" y2="145" 
+        stroke="#FFD700" 
+        stroke-width="6" 
+        stroke-linecap="round"/>
+  
+  <!-- Connection to external right node -->
+  <line x1="197" y1="135" x2="243" y2="108" 
+        stroke="#FFD700" 
+        stroke-width="6" 
+        stroke-linecap="round"/>
+</svg>

@@ -60,8 +60,16 @@ section {
   line-height: 1.6;
 }
 
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
 .hero-buttons .btn {
-  margin: 10px;
+  margin: 0;
   padding: 12px 24px;
   font-size: 1rem;
   border: none;
@@ -72,7 +80,6 @@ section {
 .btn.primary {
   background-color: #FFD700;
   color: #443d01;
-  margin-left: 33rem;
 }
 .btn.primary:hover, .btn.secondary:hover {
   background-color: #443d01;
