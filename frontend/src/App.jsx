@@ -1,6 +1,7 @@
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Routes, Route, Outlet, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import JobPredictor from "./JobPredictor/JobPredictor.jsx";
+import MainPage from './MainPage/MainPage.jsx';
 import InterviewQuestions from './InterviewQuestions/InterviewQuestions.jsx';
 import Contact from './Contact/Contact.jsx';
 import Header from './Header/Header.jsx';
@@ -43,11 +44,13 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<JobPredictor />} />
+  <Route index element={<MainPage />} />
         <Route path="job-predictor" element={<JobPredictor />} />
         <Route path="interview-questions" element={<InterviewQuestions />} />
         <Route path="contact" element={<Contact />} />
-        <Route path="SignUp" element={<SignUp />} />
+  <Route path="signup" element={<SignUp />} />
+  {/* Fallback redirect to home */}
+  <Route path="*" element={<Navigate to="/" replace />} />
         <Route path="contact us" element={<Contact />} />
       </Route>
     </Routes>
