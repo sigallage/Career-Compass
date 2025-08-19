@@ -35,13 +35,26 @@
   margin-left: 25px;
   font-size: 1.1rem;
   transition: color 0.3s ease, background-color 0.3s ease;
-  padding: 3px 5px;
+  padding: 8px 12px;
   border-radius: 4px;
+  position: relative;
 }
 
 .nav-links a:hover {
   color: #FFD700; /* bright blue on hover */
-  background-color:  rgba(0, 0, 0, 0.389); /* darker navy hover bg */
+  background-color: rgba(0, 0, 0, 0.389); /* darker navy hover bg */
+}
+
+/* Active page indicator */
+.nav-links a.active {
+  background-color: #FFD700;
+  color: #000000;
+  font-weight: bold;
+}
+
+.nav-links a.active:hover {
+  background-color: #E6C200;
+  color: #000000;
 }
 
 .login {
