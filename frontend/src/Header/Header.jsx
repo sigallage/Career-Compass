@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
-import './FAQ.css';
-import logo from './CP.jpg';
+
+import logo from '../assets/CP.jpg';
 
 const Header = () => {
   return (
