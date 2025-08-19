@@ -6,6 +6,8 @@
   padding: 30px 60px;
   color: white;
   box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+  position: relative;
+  z-index: 100; /* ensure visible above particles/content */
 }
 
 .logo {
