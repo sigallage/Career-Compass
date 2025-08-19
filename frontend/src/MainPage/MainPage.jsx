@@ -30,7 +30,7 @@ const MainPage = () => {
           <br></br>
 
           <div className="hero-buttons">
-            <Link to="/signup" className="btn primary">Get Started</Link>
+            <Link to="/SignUp" className="btn primary">Get Started</Link>
             <Link to="/faq" className="btn secondary">Read More</Link>
           </div>
 
@@ -78,7 +78,7 @@ const MainPage = () => {
       <section className="join">
         <h2>Ready to discover your path?</h2>
         <div className="join-buttons">
-          <a href="/recommendations" className="btn primary">Start Now</a>
+          <a href="/Home" className="btn primary">Go To Top</a>
         </div>
       </section>
 
