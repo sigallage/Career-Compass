@@ -1,0 +1,59 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000000; /* dark navy blue */
+  padding: 30px 60px;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #FFD700;   
+  
+}
+.logo img {
+  height: 50px; /* Adjust logo size */
+  margin-right: 10px; /* Space between logo and text */
+  vertical-align: middle; /* Aligns the image with the text */
+  border-radius: 10px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #FFD700;
+  text-decoration: none;
+  font-family: 'Times New Roman', Times, serif;
+  margin-left: 25px;
+  font-size: 1.1rem;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  padding: 3px 5px;
+  border-radius: 4px;
+}
+
+.nav-links a:hover {
+  color: #FFD700; /* bright blue on hover */
+  background-color:  rgba(0, 0, 0, 0.389); /* darker navy hover bg */
+}
+
+.login {
+  color:  #ffff3328; /* login button bright blue */
+  border: 1px solid #766800;
+}
+
+.signup {
+  background-color: #ffff3349; /* signup button filled blue */
+  color:#524800;
+  border: none;
+}
+
+.signup:hover {
+  background-color: #0099cc; /* darker on hover */
+  color: white;
+}
