@@ -9,6 +9,17 @@
   color: #ffd700;
   text-align: center;
   min-height: 400px; 
+  /* Need positioning so z-index takes effect above particles */
+  position: relative;
+  z-index: 10;
+}
+
+/* Ensure the particles canvas stays behind content and doesn't block clicks */
+#tsparticles {
+  position: fixed !important; /* in case library styles differ */
+  inset: 0;
+  z-index: 0 !important;
+  pointer-events: none; /* allow interacting with form elements above */
 }
 
 .contact-title {
